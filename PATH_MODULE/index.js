@@ -1,5 +1,5 @@
 
-const path=require('path');
+const path=require('path');  
 
 console.log(path.dirname("/home/ongraph/Desktop/ME/NODE-JS/PATH_MODULE/index.js"))
 console.log(path.extname("/home/ongraph/Desktop/ME/NODE-JS/PATH_MODULE/index.js"))

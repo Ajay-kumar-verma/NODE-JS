@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Ajay-kumar-verma/NODE-JS#readme",
   "dependencies": {
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.7.8",
     "nodemon": "^2.0.19"
   }
 }

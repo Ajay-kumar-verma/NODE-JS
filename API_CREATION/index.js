@@ -16,11 +16,12 @@ const request_listener=(req,res)=>{
    }
  else if(path=="/api"){
    let  data =  fs.readFileSync('./index.json','utf-8')
-      er && console.log("Error");
     //  It is a javascript stop execution unless file read 
       res.write(data);
    // After reading it go next line or out of this block    
  }
+
+
 //   else if(path=="/api"){
 //      fs.readFileSync('./index.json','utf-8',(er,data)=>{
 //         er && console.log("Error");

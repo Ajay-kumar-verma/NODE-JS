@@ -6,7 +6,7 @@ const con = mysql.createConnection({ host: "localhost", user: "root", password: 
 //   if(err) throw err;
 //    console.log("Connected!");
 // })
-
+// 9ixvBrAp9ObUA1k0
 
 con.query("CREATE DATABASE xxxxxxx ", function (err, result) {
     if (err) throw err;

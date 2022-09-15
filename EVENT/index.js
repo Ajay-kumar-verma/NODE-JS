@@ -4,18 +4,19 @@ const EventEmitter=require('events');
 
 const event=new EventEmitter();
 
-event.on('yourName',()=>{
- console.log("My name is Ajay kumar verma ..! ")
+event.on('yourName',
+...x=>{
+ console.log("My name is Ajay kumar verma ..! ",x)
   })
 
-event.on('yourName',()=>{
-    console.log("My name is Shubham choudhary ..! ")
+event.on('yourName',(...x)=>{
+    console.log("My name is Shubham choudhary ..! ",x)
  })
    
 
 setTimeout(() => {
-    event.emit('yourName');
- 
+    event.emit('yourName',4,5,"ajay");
+
 }, 3000);
 
 

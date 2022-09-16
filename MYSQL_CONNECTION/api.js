@@ -1,9 +1,13 @@
+console.log("api page  hit 1")
+
 const exp=require('express');
 const { AggregateError } = require('sequelize');
 
 const allFunction  =require('./sequelize')
 
 const app=new exp();
+
+console.log("api page  hit 2")
 
 app.post('/insert', (req, res) => {
   let data=req.query;  
@@ -13,9 +17,14 @@ app.post('/insert', (req, res) => {
   }); 
   })
 
+  console.log("api page  hit 3")
+
 
   app.get("/getData",(req,res)=>{
-  allFunction.Book.findAll().then(data=>{
+
+    console.log("get data  called  ")
+
+    allFunction.Book.findAll().then(data=>{
    data=data.map(res=>{
        return res['dataValues']
    })
@@ -24,19 +33,28 @@ app.post('/insert', (req, res) => {
 });
    })
 
+   console.log("api page  hit 4")
+
+
 app.get('/findOne',(req,res)=>{
     let data=req.query;  
      allFunction.findOne(data).then(d=>{
       console.log()
-        res.send(d); 
+       
+      
+      res.send(d); 
      })
 })
+
+console.log("api page  hit 5")
 
 app.put("/",(req,res)=>{
 
     res.send("Data updated ") 
 
 })
+
+console.log("api page  hit 6")
 
 app.delete('/', (req, res) => {
   let data=req.query;  
@@ -56,7 +74,19 @@ app.get("*",(req,res)=>{
 
 })
 
-const port="3000"
-  app.listen(port,"localhost", () => {
+const port="8000"
+
+
+app.listen(port,"localhost", () => {
     console.log(`Example app listening on port ${port}`)
   })
+  
+
+//    In memory everything is mapped 
+
+// {
+//   in key value pair  nothing reapeat twice or more unneccsaary 1
+// }
+
+
+

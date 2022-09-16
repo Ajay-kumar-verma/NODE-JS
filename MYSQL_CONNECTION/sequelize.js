@@ -1,4 +1,6 @@
 // Sequelize provides various methods to assist querying your database for data.
+console.log("Sequelize page  is hit ... ")
+
 const  {Sequelize , DataTypes, JSON}  = require('sequelize');
 console.log("This is sequlized ")
 
@@ -6,12 +8,12 @@ const database="Ajay"
 
 const sequelize = new Sequelize(database, 'root', '', {host: 'localhost',dialect: 'mysql'});
 
-//   try {
-//      sequelize.authenticate();
-//     console.log('Connection has been established successfully.');
-//   } catch (error) {
-//     console.error('Unable to connect to the database:', error);
-//   }
+  try {
+     sequelize.authenticate();
+    console.log('database connected ..!');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 
 
 const Book = sequelize.define("books", {

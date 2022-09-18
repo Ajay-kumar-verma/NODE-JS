@@ -17,19 +17,45 @@
 // console.log( clx);
 
 const exp=require('express');
-
+const cors = require("cors");
 const app=new exp();
 
-app.get('/', (req, res) => {
-    res.send(' Hi this is a home page ')
+
+app.use(exp.urlencoded({ extended: true }))
+app.use(exp.json())
+app.use(cors())
+
+app.get('/', async (req, res) => {
+  console.log(req?.body);
+    res.send(req?.body);
+ 
   })
 
 
-  app.get('/about', (req, res) => {
-    res.send('Hi this is about page !')
+  app.post('/', async (req, res) => {
+    console.log(req?.body);
+    res.send(req?.body);
   })
 
-  app.get('*x',(req,res)=>{
+
+  app.put('/', async(req, res) => {
+    console.log(req?.body);
+    res.send(req?.body);
+  })
+
+  app.patch('/', async (req, res) => {
+    console.log(req?.body);
+    res.send(req?.body);
+  })
+
+  app.delete("/", async  (req,res)=>{
+    console.log(req?.body);
+    res.send(req?.body);
+    
+  })
+
+
+  app.get('*x', async (req,res)=>{
     res.send("<h1 style='color:red'>Invalid url </h1>"+req.url)
   })
   

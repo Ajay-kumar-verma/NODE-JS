@@ -7,6 +7,8 @@ const request_listener=(req,res)=>{
   const path=req.url;
    
   if(path=='/' || path=="/home"){
+   
+   console.log(req.query)
     res.writeHead(200);
     res.write("Hi This is a Home page  ");
   }

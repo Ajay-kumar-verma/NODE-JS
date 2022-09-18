@@ -1,23 +1,29 @@
-console.log("api page  hit 1")
-
 const exp=require('express');
-const { AggregateError } = require('sequelize');
+// const { AggregateError } = require('sequelize');
 
-const allFunction  =require('./sequelize')
+// const allFunction  =require('./sequelize')
 
 const app=new exp();
 
-console.log("api page  hit 2")
+app.post('/', async (req, res) => {
+  
+  try{
+    const data =  req.body
+     res.send("Ajay kyumar vetrma"+data)
+   }
+   catch(e){
+  console.log(e)
+  res.send(e);  
+}
 
-app.post('/insert', (req, res) => {
-  let data=req.query;  
-  allFunction.insertData(data).then(msg=>{
-    // console.log(msg); 
-    res.send(msg)
-  }); 
-  })
 
-  console.log("api page  hit 3")
+  // let data=req.query;  
+  // allFunction.insertData(data).then(msg=>{
+  //   // console.log(msg); 
+  //   res.send(msg)
+  // }); 
+ 
+})
 
 
   app.get("/getData",(req,res)=>{
@@ -33,7 +39,6 @@ app.post('/insert', (req, res) => {
 });
    })
 
-   console.log("api page  hit 4")
 
 
 app.get('/findOne',(req,res)=>{
@@ -46,7 +51,6 @@ app.get('/findOne',(req,res)=>{
      })
 })
 
-console.log("api page  hit 5")
 
 app.put("/",(req,res)=>{
 
@@ -54,7 +58,6 @@ app.put("/",(req,res)=>{
 
 })
 
-console.log("api page  hit 6")
 
 app.delete('/', (req, res) => {
   let data=req.query;  

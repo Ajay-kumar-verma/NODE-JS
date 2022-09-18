@@ -1,8 +1,8 @@
 // Sequelize provides various methods to assist querying your database for data.
-console.log("Sequelize page  is hit ... ")
+// console.log("Sequelize page  is hit ... ")
 
 const  {Sequelize , DataTypes, JSON}  = require('sequelize');
-console.log("This is sequlized ")
+// console.log("This is sequlized ")
 
 const database="Ajay"
 

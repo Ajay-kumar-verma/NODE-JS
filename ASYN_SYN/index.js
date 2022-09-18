@@ -12,4 +12,3 @@ fs.appendFileSync("index.txt","\nhello buddy");
 const data=fs.readFileSync('index.txt','utf-8');
 console.log(data);
 console.log("After logging data")
-

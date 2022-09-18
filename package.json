@@ -8,7 +8,9 @@
     "mysql": "node MYSQL_CONNECTION/sequelize.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "api": "nodemon MYSQL_CONNECTION/api.js",
-    "mssql": "nodemon MSSQL/index.js"
+    "mssql": "nodemon MSSQL/index.js",
+    "apic": "nodemon API_CALLING/index.js",
+    "asyn":"nodemon ASYN_SYN/asynfunc.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/Ajay-kumar-verma/NODE-JS#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "express.js": "^1.0.0",

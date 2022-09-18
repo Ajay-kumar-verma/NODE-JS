@@ -10,7 +10,7 @@
     "api": "nodemon MYSQL_CONNECTION/api.js",
     "mssql": "nodemon MSSQL/index.js",
     "apic": "nodemon API_CALLING/index.js",
-    "asyn":"nodemon ASYN_SYN/asynfunc.js"
+    "asyn": "nodemon ASYN_SYN/asynfunc.js"
   },
   "repository": {
     "type": "git",

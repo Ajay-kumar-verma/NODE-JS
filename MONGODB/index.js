@@ -1,14 +1,16 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const express = require("express");
+// const bodyParser = require("body-parser");
+const app = express();
+// app.use(bodyParser.json());
 
-const uri = "mongodb+srv://tuitionwalah:9ixvBrAp9ObUA1k0@cluster0.u6jzbxy.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  console.log(err)
-console.log(collection)
-//   .l
-//   .close();
+app.get("/", function (req, res) {
+  res.status(200);
+  res.send("hello world...!"+req.url,req.body);
+
+
+
 });
 
-// client.
+app.listen(3000, function () {
+	console.log("Server started on port 3000");
+});

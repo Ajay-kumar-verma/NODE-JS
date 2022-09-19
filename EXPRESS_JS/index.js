@@ -16,6 +16,14 @@
 
 // console.log( clx);
 
+
+/**
+ *   https://expressjs.com/en/guide/routing.html
+ *  */
+
+
+
+
 const exp=require('express');
 const cors = require("cors");
 const app=new exp();

@@ -18,8 +18,16 @@
 
 
 /**
+ *  https://stackoverflow.com/questions/31089221/what-is-the-difference-between-put-post-and-patch#:~:text=POST%20is%20always%20for%20creating,always%20for%20updating%20a%20resource
+ * 
+ *   https://expressjs.com/en/4x/api.html#router.METHOD
+ * 
+ *  
+ *    Refer this for routing 
  *   https://expressjs.com/en/guide/routing.html
  *  */
+
+
 
 
 

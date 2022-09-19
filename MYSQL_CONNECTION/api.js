@@ -1,5 +1,5 @@
 
-const allFunction  =require('./sequelize');
+// const allFunction  =require('./sequelize');
 
 const exp=require('express');
 const cors = require("cors");
@@ -11,6 +11,7 @@ app.use(cors())
 
 
 app.get('/', async (req, res) => {
+
   console.log("get api hit ...!");
     allFunction.getData().then(data=>{
       console.log(data);

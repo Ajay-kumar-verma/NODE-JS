@@ -25,21 +25,50 @@ const app=new exp();
 app.use(exp.json())
 app.use(cors())
 
+app.all('*', function (req, res, next) {
+   console.log('API CALLED',req.method);
+
+  next();
+});
+
 app.get('/', async (req, res) => {
-  console.log("Get api hit .")
-   
-  console.log(req?.body);
+    console.log(req?.body);
     res.send(req?.body);  
  
   })
 
+  app.post('/', async (req, res) => {
+    console.log(req?.body);
+    res.send(req?.body);
+  })
+
+
+
+  app.put('/', async(req, res) => {
+    console.log(req?.body);
+    res.send(req?.body);
+  })
+
+
+
+
+  app.patch('/', async (req, res) => {
+    console.log(req?.body);
+    res.send(req?.body);
+  })
+
+  app.delete("/", async  (req,res)=>{
+    console.log(req?.body);
+    res.send(req?.body);
+    
+  })
 
 app.get("/qry",(req,res)=>{
   console.log("Get api hit with Query ")  
  const data=req.query;
  console.log(req.search)
  console.log(req?.body);
-  res.send(data);
+  res.send(req?.body);
 
 })
 
@@ -52,27 +81,7 @@ app.get("/:id",(req,res)=>{
 })
 
 
-  app.post('/', async (req, res) => {
-    console.log(req?.body);
-    res.send(req?.body);
-  })
 
-
-  app.put('/', async(req, res) => {
-    console.log(req?.body);
-    res.send(req?.body);
-  })
-
-  app.patch('/', async (req, res) => {
-    console.log(req?.body);
-    res.send(req?.body);
-  })
-
-  app.delete("/", async  (req,res)=>{
-    console.log(req?.body);
-    res.send(req?.body);
-    
-  })
 
 
   app.get('*x', async (req,res)=>{

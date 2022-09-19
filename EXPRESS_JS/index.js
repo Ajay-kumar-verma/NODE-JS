@@ -21,15 +21,35 @@ const cors = require("cors");
 const app=new exp();
 
 
-app.use(exp.urlencoded({ extended: true }))
+// app.use(exp.urlencoded({ extended: true }))
 app.use(exp.json())
 app.use(cors())
 
 app.get('/', async (req, res) => {
+  console.log("Get api hit .")
+   
   console.log(req?.body);
-    res.send(req?.body);
+    res.send(req?.body);  
  
   })
+
+
+app.get("/qry",(req,res)=>{
+  console.log("Get api hit with Query ")  
+ const data=req.query;
+ console.log(req.search)
+ console.log(req?.body);
+  res.send(data);
+
+})
+
+app.get("/:id",(req,res)=>{
+  console.log("Get api hit with id ")  
+
+ console.log(req.params.id);
+  res.send(req?.body);
+
+})
 
 
   app.post('/', async (req, res) => {

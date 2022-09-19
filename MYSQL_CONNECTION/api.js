@@ -1,95 +1,47 @@
+
+const allFunction  =require('./sequelize');
+
 const exp=require('express');
-// const { AggregateError } = require('sequelize');
-
-// const allFunction  =require('./sequelize')
-
+const cors = require("cors");
 const app=new exp();
 
-app.post('/', async (req, res) => {
+app.use(exp.urlencoded({ extended: true }))
+app.use(exp.json())
+app.use(cors())
+
+
+app.get('/', async (req, res) => {
+  console.log("get api hit ...!");
+    allFunction.getData().then(data=>{
+      console.log(data);
+    })
+
+  //  console.log(data); 
+   res.send("ajay kumar verma");
+     
+ })
+
   
-  try{
-    const data =  req.body
-     res.send("Ajay kyumar vetrma"+data)
-   }
-   catch(e){
-  console.log(e)
-  res.send(e);  
-}
-
-
-  // let data=req.query;  
-  // allFunction.insertData(data).then(msg=>{
-  //   // console.log(msg); 
-  //   res.send(msg)
-  // }); 
- 
-})
-
-
-  app.get("/getData",(req,res)=>{
-
-    console.log("get data  called  ")
-
-    allFunction.Book.findAll().then(data=>{
-   data=data.map(res=>{
-       return res['dataValues']
-   })
-  res.send(data);
+app.post('/',async (req,res)=>{
    
-});
-   })
+    try {
+      const data =await req?.body;
+      allFunction.insertData(data);
+      console.log("data inserted "); 
+      res.send(data)
 
-
-
-app.get('/findOne',(req,res)=>{
-    let data=req.query;  
-     allFunction.findOne(data).then(d=>{
-      console.log()
-       
-      
-      res.send(d); 
-     })
-})
-
-
-app.put("/",(req,res)=>{
-
-    res.send("Data updated ") 
+    } catch (error) {
+      console.log(error);
+      res.send(error)
+    }
 
 })
 
 
-app.delete('/', (req, res) => {
-  let data=req.query;  
-  allFunction.del(data) 
-   res.send("Data delete")
 
-})
-   
+  
 
-app.post("*",(req,res)=>{
-     res.send("Invalid request")
-
-})
-
-app.get("*",(req,res)=>{
-    res.send("Invalid request")
-
-})
-
-const port="8000"
-
-
-app.listen(port,"localhost", () => {
+  const port="7000"
+  app.listen(port,"localhost", () => {
     console.log(`Example app listening on port ${port}`)
   })
-  
-
-//    In memory everything is mapped 
-
-// {
-//   in key value pair  nothing reapeat twice or more unneccsaary 1
-// }
-
-
-

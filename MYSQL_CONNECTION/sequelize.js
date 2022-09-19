@@ -1,50 +1,76 @@
 // Sequelize provides various methods to assist querying your database for data.
 // console.log("Sequelize page  is hit ... ")
 
-const  {Sequelize , DataTypes, JSON}  = require('sequelize');
+const  {Sequelize , Model, DataTypes, JSON}  = require('sequelize');
 // console.log("This is sequlized ")
 
-const database="Ajay"
+const database="RMH_PBECB"
 
-const sequelize = new Sequelize(database, 'root', '', {host: 'localhost',dialect: 'mysql'});
+const sequelize = new Sequelize(database, 'NFCMStoRMH', 'Pckg$tatus=925',
+ {
+  host: 'cb.pos.postboxesetc.com', dialect: 'mssql', port:1434
+ });
 
   try {
-     sequelize.authenticate();
+     (async ()=>{
+      await sequelize.authenticate();
     console.log('database connected ..!');
+    
+     })()   
+ 
+
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
+  Model?.Item?.find().then(data => console.log("data",data)).catch(e => console.log("ee",e))
+  // sequelize?.Item?.findAll().then(data => {
+  //   console.log(data,"fetched data ");
+  // }).catch(e => console.log("err",e))
 
 
-const Book = sequelize.define("books", {
-   title: {
-     type: DataTypes.STRING,
-    },
-   author: {
-     type: DataTypes.STRING,
-   },
-   release_date: {
-     type: DataTypes.DATEONLY,
-   },
-   subject: {
-     type: DataTypes.INTEGER,
-   }
-});
-  
+
+// const Book = sequelize.define("users", {
+//    title: {
+//      type: DataTypes.STRING,
+//     },
+//    author: {
+//      type: DataTypes.STRING,
+//    },
+//    release_date: {
+//      type: DataTypes.STRING,
+//    },
+//    subject: {
+//      type: DataTypes.STRING,
+//    }
+// });
+
+// (async ()=>{
+// await sequelize.sync({ force: true }); 
+// })()
+
+return ;
+
+
+
+
+return ;    
+
+ 
+
+
 async function insertData(obj){
     //  await sequelize.sync({ force: true });
      await Book.create(obj);
       return "Data inserted ";
 }
 
- function getData(){
-     Book.findAll().then(res => {
-          console.log(res[0]["dataValues"])
+  function getData(){
 
-        return   res;
-        }).catch((error) => {
-           return 'Failed to retrieve data : '+ error;
-        });
+    Book.findAll().then(data => {
+      console.log(data,"fetched data ");
+    });
+     return "All datas";    
+
     
 }
 

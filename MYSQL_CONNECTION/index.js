@@ -8,7 +8,7 @@ const con = mysql.createConnection({ host: "localhost", user: "root", password: 
 // })
 // 9ixvBrAp9ObUA1k0
 
-con.query("CREATE DATABASE xxxxxxx ", function (err, result) {
+con.query("CREATE DATABASE ajay ", function (err, result) {
     if (err) throw err;
     console.log("Database created");
  
